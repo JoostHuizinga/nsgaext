@@ -48,7 +48,7 @@ public:
 		parallel::init();
 
 		_parent_pop.resize(Params::pop::size);
-		assert(Params::pop::select_size % 4 == 0);
+		dbg::assertion(DBG_ASSERTION(Params::pop::size % 4 == 0));
 
 		pop_t init_pop = pop_t((size_t)(Params::pop::size * Params::pop::initial_aleat));;
 		parallel::p_for(parallel::range_t(0, init_pop.size()), random<crowd::Indiv<Phen> >(init_pop));
